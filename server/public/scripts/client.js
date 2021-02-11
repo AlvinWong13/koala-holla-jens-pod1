@@ -18,7 +18,7 @@ function setupClickListeners() {
       name: $('#nameIn').val(),
       age: $('#ageIn').val(),
       gender: $('#genderIn').val(),
-      readyForTransfer: $('#readyForTransferIn').val(),
+      ready_for_transfer: $('#readyForTransferIn').val(),
       notes: $('#notesIn').val(),
     };
 
@@ -41,9 +41,22 @@ function getKoalas() {
     method: 'GET',
     url: '/koalas',
   })
-    .then(function (response) {
-      for (let koala of koalas)
-        console.log('getKoalas GET response:', response);
+    .then(function (koalaArray) {
+      let koalaOnDom = $('#viewKoalas');
+
+      for (let koala of koalaArray) {
+        koalaOnDom.empty();
+        koalaOnDom.append(`
+          <tr>
+            <td>${koala.name}</td>
+            <td>${koala.age}</td>
+            <td>${koala.gender}</td>
+            <td>${koala.ready_for_transfer}</td>
+            <td>${koala.notes}</td>
+          </tr>
+        `);
+      }
+      console.log('getKoalas GET response:', response);
     })
     .catch(function (error) {
       console.log('error in GET', error);
