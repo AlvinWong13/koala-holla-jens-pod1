@@ -55,6 +55,12 @@ function saveKoala(newKoala) {
   $.ajax({
     method: 'POST',
     url: '/koalas',
-    data: koalaToAdd,
-  });
+    data: koala_to_add,
+  })
+    .then(function (response) {
+      console.log('saveKoala POST response:', response);
+    })
+    .catch(function (err) {
+      console.log('error posting koala:', err);
+    });
 }
