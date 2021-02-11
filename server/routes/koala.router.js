@@ -29,8 +29,8 @@ router.post('/', (req, res) => {
   /*
   Query should look like this:
 
-  INSERT INTO "songs"
-    ("artist", "track", "published", "rank")
+  INSERT INTO "koalas"
+    ("name", "gender", "age", "transfer", "notes")
   VALUES
     ('some artist', 'tracky', '1-1-1970', 7);
 
@@ -61,7 +61,42 @@ router.post('/', (req, res) => {
       res.sendStatus(500);
     });
 });
+
 // PUT
+// need to update the ready to transfer
+router.put('/:id', (req, res) => {
+  console.log('req.body', req.body);
+  console.log('req.params', req.params);
+  let koalaID = req.params.id;
+
+  //
+
+  let transfer = req.body.transfer;
+  let sqlText = '';
+
+  if (transfer === 'Y') {
+    // use rank -1 as it get's close to the rank of 1
+    sqlText = `UPDATE "koalas" SET "ready_to_transfer"='N' WHERE id=$1`;
+  } else if (transfer === 'N') {
+    sqlText = `UPDATE "koalas" SET "ready_to_transfer"='Y' WHERE id=$1`;
+  } else {
+    // If we don't get an expected direction, send back bad status
+    console.log('Whoops');
+    res.sendStatus(500);
+    return; // Do it now, doesn't run the next set of code
+  }
+
+  pool
+    .query(sqlText, [koalaID])
+    .then((dbRes) => {
+      console.log(dbRes);
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log('error', err);
+      res.sendStatus(500);
+    });
+});
 
 // DELETE
 

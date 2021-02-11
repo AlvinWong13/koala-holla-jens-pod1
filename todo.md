@@ -8,9 +8,9 @@
 
 ## Client-Side
 
-- [] Create form inputs
-  - [] 5 inputs (name, gender, age, ready to transfer, notes)
-  - [] Submit button
+- [x] Create form inputs
+  - [x] 5 inputs (name, gender, age, ready to transfer, notes)
+  - [x] Submit button
 - [] On submit, append vals to DOM
 - [] ajax POST input data to Server
 - [] Next to each entry, button to mark 'ready for transfer' that updates DB
@@ -18,7 +18,7 @@
 
 ## Server-Side
 
-- [] GET route will send info to the DB
+- [x] GET route will send info to the DB
 - [] POST will send data to the client
 - [] PUT will update ready-to-transfer in the DB
 - [] DELETE (No deleting koala's)
