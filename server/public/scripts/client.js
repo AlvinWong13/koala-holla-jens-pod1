@@ -42,7 +42,8 @@ function getKoalas() {
     url: '/koalas',
   })
     .then(function (response) {
-      console.log('getKoalas GET response:', response);
+      for (let koala of koalas)
+        console.log('getKoalas GET response:', response);
     })
     .catch(function (error) {
       console.log('error in GET', error);
