@@ -1,9 +1,9 @@
 # TODO
 
 ## Server-Side
--[] Write SQL code to setup table of data (one person)              |
--[] Set up DB each individually in Postico (everybody)
--[] Set up pool
+- [x] Write SQL code to setup table of data (one person)              |
+- [x] Set up DB each individually in Postico (everybody)
+- [x] Set up pool
 
 ## Client-Side
 - [] Create form inputs
@@ -22,4 +22,4 @@
 
 ## Upon completion
 
-- [] Provide not only the source (via GitHub url), but also instructions on how the database table should be set up. This can be in a simple `database. sql` file in the repo
+- [] Provide not only the source (via GitHub url), but also instructions on how the database table should be set up. This can be in a simple `database. sql` file in the repo. 
