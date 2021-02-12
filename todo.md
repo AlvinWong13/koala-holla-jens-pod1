@@ -14,7 +14,7 @@
 - [x] On submit, append vals to DOM
 - [x] ajax POST input data to Server
 - [] Next to each entry, button to mark 'ready for transfer' that updates DB
-  - Button should only appear for Koalas that haven't yet been marked ready for transfer.
+  - [x] Button should only appear for Koalas that haven't yet been marked ready for transfer.
 
 ## Server-Side
 

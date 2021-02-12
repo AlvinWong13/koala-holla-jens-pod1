@@ -9,11 +9,11 @@ $(document).ready(function () {
 }); // end doc ready
 
 function setupClickListeners() {
+  $(document).on('click', '.koala-transfer-button', updateTransfer);
   $('#addButton').on('click', function () {
     console.log('in addButton on click');
+
     // get user input and put in an object
-    // NOT WORKING YET :(
-    // using a test object
     let koalaToSend = {
       name: $('#nameIn').val(),
       age: $('#ageIn').val(),
@@ -51,7 +51,7 @@ function getKoalas() {
       for (let koala of koalaArray) {
         let transferButton;
         if (!koala.ready_to_transfer) {
-          transferButton = `<button>
+          transferButton = `<button class="koala-transfer-button">
         Mark as Ready to Transfer</button>`;
         } else {
           transferButton = '';
@@ -91,4 +91,8 @@ function saveKoala(newKoala) {
     .catch(function (err) {
       console.log('error posting koala:', err);
     });
+}
+
+function updateTransfer() {
+  console.log('transfer update');
 }
