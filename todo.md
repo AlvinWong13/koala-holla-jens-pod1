@@ -1,7 +1,6 @@
 # TODO
 
 ## Server-Side
-
 - [x] Write SQL code to setup table of data (one person) |
 - [x] Set up DB each individually in Postico (everybody)
 - [x] Set up pool

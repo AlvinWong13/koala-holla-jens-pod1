@@ -18,7 +18,7 @@ function setupClickListeners() {
       name: $('#nameIn').val(),
       age: $('#ageIn').val(),
       gender: $('#genderIn').val(),
-      readyForTransfer: $('#readyForTransferIn').val(),
+      ready_for_transfer: $('#readyForTransferIn').val(),
       notes: $('#notesIn').val(),
     };
 
@@ -37,9 +37,44 @@ function setupClickListeners() {
 function getKoalas() {
   console.log('in getKoalas');
   // ajax call to server to get koalas
+  $.ajax({
+    method: 'GET',
+    url: '/koalas',
+  })
+    .then(function (koalaArray) {
+      let koalaOnDom = $('#viewKoalas');
+
+      for (let koala of koalaArray) {
+        koalaOnDom.empty();
+        koalaOnDom.append(`
+          <tr>
+            <td>${koala.name}</td>
+            <td>${koala.age}</td>
+            <td>${koala.gender}</td>
+            <td>${koala.ready_for_transfer}</td>
+            <td>${koala.notes}</td>
+          </tr>
+        `);
+      }
+      console.log('getKoalas GET response:', response);
+    })
+    .catch(function (error) {
+      console.log('error in GET', error);
+    });
 } // end getKoalas
 
 function saveKoala(newKoala) {
   console.log('in saveKoala', newKoala);
-  // ajax call to server to get koalas
+  // ajax call to server to post koalas:
+  $.ajax({
+    method: 'POST',
+    url: '/koalas',
+    data: koala_to_add,
+  })
+    .then(function (response) {
+      console.log('saveKoala POST response:', response);
+    })
+    .catch(function (err) {
+      console.log('error posting koala:', err);
+    });
 }
