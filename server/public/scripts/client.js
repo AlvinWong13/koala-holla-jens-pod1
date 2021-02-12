@@ -10,6 +10,7 @@ $(document).ready(function () {
 
 function setupClickListeners() {
   $(document).on('click', '.koala-transfer-button', updateTransfer);
+  $(document).on('click', '.koala-row', editKoala); //.closest('td');
   $('#addButton').on('click', function () {
     console.log('in addButton on click');
 
@@ -54,12 +55,12 @@ function getKoalas() {
         Toggle ready to transfer</button>`;
 
         koalaOnDom.append(`
-          <tr>
-            <td>${koala.name}</td>
-            <td>${koala.age}</td>
-            <td>${koala.gender}</td>
-            <td>${koala.ready_to_transfer}</td>
-            <td>${koala.notes}</td>
+          <tr class="koala-row">
+            <td data-info="${koala.name}">${koala.name}</td>
+            <td data-info="${koala.age}">${koala.age}</td>
+            <td data-info="${koala.gender}">${koala.gender}</td>
+            <td data-info="${koala.ready_to_transfer}">${koala.ready_to_transfer}</td>
+            <td data-info="${koala.notes}">${koala.notes}</td>
             <td>${transferButton}</td>
           </tr>
         `);
@@ -108,4 +109,13 @@ function updateTransfer() {
     .catch((error) => {
       alert('Error with transfer', error);
     });
+}
+
+function editKoala() {
+  //let closestKoala = $(this).closest('td');
+  let dataBox = $(this).data('info');
+  console.log('editing koala');
+  console.log('dataBox', dataBox);
+  // console.log('closestKoala', closestKoala);
+  console.log('this:', this);
 }
