@@ -43,9 +43,9 @@ koalaRouter.post('/', (req, res) => {
     .query(
       `
     INSERT INTO "koalas"
-    ("name", "gender", "age", "transfer", "notes")
+    ("name", "gender", "age", "ready_to_transfer", "notes")
     VALUES
-    ('${req.body.name}', '${req.body.gender}', '${req.body.age}', ${req.body.transfer}, ${req.body.notes});
+    ('${req.body.name}', '${req.body.gender}', '${req.body.age}', '${req.body.ready_to_transfer}', '${req.body.notes}');
     `
     )
     // could be .then(dbRes => {.... })

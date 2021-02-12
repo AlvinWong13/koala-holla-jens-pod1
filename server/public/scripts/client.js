@@ -18,7 +18,7 @@ function setupClickListeners() {
       name: $('#nameIn').val(),
       age: $('#ageIn').val(),
       gender: $('#genderIn').val(),
-      ready_for_transfer: $('#readyForTransferIn').val(),
+      ready_to_transfer: $('#readyToTransferIn').val(),
       notes: $('#notesIn').val(),
     };
 
@@ -26,7 +26,7 @@ function setupClickListeners() {
     $('#nameIn').val('');
     $('#ageIn').val('');
     $('#genderIn').val('');
-    $('#readyForTransferIn').val('');
+    $('#readyToTransferIn').val('');
     $('#notesIn').val('');
 
     // call saveKoala with the new obejct
@@ -44,20 +44,21 @@ function getKoalas() {
     .then(function (koalaArray) {
       let koalaOnDom = $('#viewKoalas');
 
-      console.log('koalaArray', koalaArray);
       koalaOnDom.empty();
+
+      console.log('getKoalas GET response:', koalaArray);
+
       for (let koala of koalaArray) {
         koalaOnDom.append(`
           <tr>
             <td>${koala.name}</td>
             <td>${koala.age}</td>
             <td>${koala.gender}</td>
-            <td>${koala.ready_for_transfer}</td>
+            <td>${koala.ready_to_transfer}</td>
             <td>${koala.notes}</td>
           </tr>
         `);
       }
-      console.log('getKoalas GET response:', response);
     })
     .catch(function (error) {
       console.log('error in GET', error);
@@ -66,6 +67,9 @@ function getKoalas() {
 
 function saveKoala(newKoala) {
   console.log('in saveKoala', newKoala);
+
+  let koala_to_add = newKoala;
+
   // ajax call to server to post koalas:
   $.ajax({
     method: 'POST',

@@ -1,9 +1,11 @@
+DROP TABLE "koalas";
+
 CREATE TABLE "koalas" (
 	"id" SERIAL PRIMARY KEY,
 	"name" VARCHAR (250) NOT NULL,
 	"gender" VARCHAR (50) NOT NULL,
 	"age" INTEGER,
-  "ready_to_transfer" VARCHAR(50),
+  "ready_to_transfer" BOOLEAN DEFAULT FALSE,
   "notes" VARCHAR (250) NOT NULL
 );
 
