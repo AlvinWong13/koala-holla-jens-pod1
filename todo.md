@@ -13,14 +13,14 @@
   - [x] Submit button
 - [x] On submit, append vals to DOM
 - [x] ajax POST input data to Server
-- [] Next to each entry, button to mark 'ready for transfer' that updates DB
+- [x] Next to each entry, button to mark 'ready for transfer' that updates DB
   - [x] Button should only appear for Koalas that haven't yet been marked ready for transfer.
 
 ## Server-Side
 
 - [x] GET route will send info to the DB
 - [x] POST will send data to the client
-- [] PUT will update ready-to-transfer in the DB
+- [x] PUT will update ready-to-transfer in the DB
 - [] DELETE (No deleting koala's)
 
 ## Upon completion

@@ -49,13 +49,9 @@ function getKoalas() {
       console.log('getKoalas GET response:', koalaArray);
 
       for (let koala of koalaArray) {
-        let transferButton;
-        if (!koala.ready_to_transfer) {
-          transferButton = `<button class="koala-transfer-button" data-id="${koala.id}">
-        Mark as Ready to Transfer</button>`;
-        } else {
-          transferButton = '';
-        }
+        let transferButton = `<button class="koala-transfer-button" data-id="${koala.id}" data-status="${koala.ready_to_transfer}">
+        Toggle ready to transfer</button>`;
+
         koalaOnDom.append(`
           <tr>
             <td>${koala.name}</td>
@@ -96,9 +92,13 @@ function saveKoala(newKoala) {
 function updateTransfer() {
   console.log('transfer update');
   let thisKoalaId = $(this).data('id');
+  let thisKoalaStatus = $(this).data('status');
   $.ajax({
     method: 'PUT',
     url: `/koalas/${thisKoalaId}`,
+    data: {
+      thisKoalaStatus,
+    },
   })
     .then((response) => {
       console.log('Successful transfer!');
