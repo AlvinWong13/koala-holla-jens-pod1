@@ -73,10 +73,10 @@ koalaRouter.put('/:id', (req, res) => {
   let transfer = req.body.thisKoalaStatus;
   console.log('transfer status', transfer);
 
-  if (transfer === 'TRUE') {
-    sqlText = `UPDATE "koalas" SET "ready_to_transfer"='FALSE' WHERE id=$1`;
-  } else if (transfer === 'FALSE') {
-    sqlText = `UPDATE "koalas" SET "ready_to_transfer"='TRUE' WHERE id=$1`;
+  if (transfer === 'true') {
+    sqlText = `UPDATE "koalas" SET "ready_to_transfer"=FALSE WHERE id=$1`;
+  } else if (transfer === 'false') {
+    sqlText = `UPDATE "koalas" SET "ready_to_transfer"=TRUE WHERE id=$1`;
   } else {
     // If we don't get an expected direction, send back bad status
     console.log('Whoops');

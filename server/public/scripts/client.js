@@ -49,7 +49,8 @@ function getKoalas() {
       console.log('getKoalas GET response:', koalaArray);
 
       for (let koala of koalaArray) {
-        let transferButton = `<button class="koala-transfer-button" data-id="${koala.id}" data-status="${koala.ready_to_transfer}">
+        let transferButton = `<button class="koala-transfer-button" 
+        data-id="${koala.id}" data-status="${koala.ready_to_transfer}">
         Toggle ready to transfer</button>`;
 
         koalaOnDom.append(`
