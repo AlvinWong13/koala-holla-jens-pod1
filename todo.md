@@ -1,14 +1,13 @@
 # TODO
 
 ## Server-Side
-
--[] Write SQL code to setup table of data (one person) |
--[] Set up DB each individually in Postico (everybody)
--[] Set up pool
+- [x] Write SQL code to setup table of data (one person) |
+- [x] Set up DB each individually in Postico (everybody)
+- [x] Set up pool
 
 ## Client-Side
 
-- [] Create form inputs
+- [x] Create form inputs
   - [x] 5 inputs (name, gender, age, ready to transfer, notes)
   - [x] Submit button
 - [] On submit, append vals to DOM
@@ -18,7 +17,7 @@
 
 ## Server-Side
 
-- [] GET route will send info to the DB
+- [x] GET route will send info to the DB
 - [] POST will send data to the client
 - [] PUT will update ready-to-transfer in the DB
 - [] DELETE (No deleting koala's)
