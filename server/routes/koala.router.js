@@ -65,26 +65,10 @@ koalaRouter.post('/', (req, res) => {
 // PUT
 // need to update the ready to transfer
 koalaRouter.put('/:id', (req, res) => {
-  console.log('req.body', req.body);
   console.log('req.params', req.params);
   let koalaID = req.params.id;
 
-  //
-
-  let transfer = req.body.transfer;
-  let sqlText = '';
-
-  if (transfer === 'Y') {
-    // use rank -1 as it get's close to the rank of 1
-    sqlText = `UPDATE "koalas" SET "ready_to_transfer"='N' WHERE id=$1`;
-  } else if (transfer === 'N') {
-    sqlText = `UPDATE "koalas" SET "ready_to_transfer"='Y' WHERE id=$1`;
-  } else {
-    // If we don't get an expected direction, send back bad status
-    console.log('Whoops');
-    res.sendStatus(500);
-    return; // Do it now, doesn't run the next set of code
-  }
+  let sqlText = `UPDATE "koalas" SET "ready_to_transfer" = TRUE WHERE id=$1`;
 
   pool
     .query(sqlText, [koalaID])

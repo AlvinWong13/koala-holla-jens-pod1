@@ -51,7 +51,7 @@ function getKoalas() {
       for (let koala of koalaArray) {
         let transferButton;
         if (!koala.ready_to_transfer) {
-          transferButton = `<button class="koala-transfer-button">
+          transferButton = `<button class="koala-transfer-button" data-id="${koala.id}">
         Mark as Ready to Transfer</button>`;
         } else {
           transferButton = '';
@@ -95,4 +95,16 @@ function saveKoala(newKoala) {
 
 function updateTransfer() {
   console.log('transfer update');
+  let thisKoalaId = $(this).data('id');
+  $.ajax({
+    method: 'PUT',
+    url: `/koalas/${thisKoalaId}`,
+  })
+    .then((response) => {
+      console.log('Successful transfer!');
+      getKoalas();
+    })
+    .catch((error) => {
+      alert('Error with transfer', error);
+    });
 }
