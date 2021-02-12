@@ -78,6 +78,7 @@ function saveKoala(newKoala) {
   })
     .then(function (response) {
       console.log('saveKoala POST response:', response);
+      getKoalas();
     })
     .catch(function (err) {
       console.log('error posting koala:', err);
