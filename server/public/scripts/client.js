@@ -49,6 +49,13 @@ function getKoalas() {
       console.log('getKoalas GET response:', koalaArray);
 
       for (let koala of koalaArray) {
+        let transferButton;
+        if (!koala.ready_to_transfer) {
+          transferButton = `<button>
+        Mark as Ready to Transfer</button>`;
+        } else {
+          transferButton = '';
+        }
         koalaOnDom.append(`
           <tr>
             <td>${koala.name}</td>
@@ -56,6 +63,7 @@ function getKoalas() {
             <td>${koala.gender}</td>
             <td>${koala.ready_to_transfer}</td>
             <td>${koala.notes}</td>
+            <td>${transferButton}</td>
           </tr>
         `);
       }
