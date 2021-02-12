@@ -25,7 +25,7 @@ koalaRouter.get('/', (req, res) => {
 });
 
 // *** POST
-router.post('/', (req, res) => {
+koalaRouter.post('/', (req, res) => {
   /*
   Query should look like this:
 
@@ -64,7 +64,7 @@ router.post('/', (req, res) => {
 
 // PUT
 // need to update the ready to transfer
-router.put('/:id', (req, res) => {
+koalaRouter.put('/:id', (req, res) => {
   console.log('req.body', req.body);
   console.log('req.params', req.params);
   let koalaID = req.params.id;

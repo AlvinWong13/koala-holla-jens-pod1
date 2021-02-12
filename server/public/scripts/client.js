@@ -44,8 +44,9 @@ function getKoalas() {
     .then(function (koalaArray) {
       let koalaOnDom = $('#viewKoalas');
 
+      console.log('koalaArray', koalaArray);
+      koalaOnDom.empty();
       for (let koala of koalaArray) {
-        koalaOnDom.empty();
         koalaOnDom.append(`
           <tr>
             <td>${koala.name}</td>
